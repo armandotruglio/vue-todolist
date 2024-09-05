@@ -41,10 +41,10 @@
                 </li>
             </ul>
 
-            <form class="d-flex px-3">
-                <input class="form-control me-3" type="text" placeholder="Inserire Task">
-                <button type="button" class="btn btn-primary btn-sm">INSERISCI</button>
-            </form>
+            <div class="d-flex px-3">
+                <input class="form-control me-3" type="text" placeholder="Inserire Task" v-model="text" @keyup.enter="addItem(text)">
+                <button type="button" class="btn btn-primary btn-sm" @click="addItem(text)">INSERISCI</button>
+            </div>
         </div>
 
     </main>
