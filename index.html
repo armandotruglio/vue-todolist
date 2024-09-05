@@ -33,10 +33,10 @@
     </header>
 
     <main>
-        <div class="container">
+        <div id="app" class="container">
             <ul class="list-group mb-5">
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>An item</span>
+                <li v-for="(task,i) in tasks" class="list-group-item d-flex justify-content-between" :class = "{done : task.done}">
+                    <span> {{ task.text }}</span>
                     <button type="button" class="btn-close"></button>
                 </li>
             </ul>
