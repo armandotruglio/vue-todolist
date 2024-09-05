@@ -34,19 +34,18 @@
 
     <main>
         <div id="app" class="container">
+            <div class="d-flex mb-5">
+                <input class="form-control me-3" type="text" placeholder="Inserire Task" v-model="taskText" @keyup.enter="addItem(taskText)">
+                <button type="button" class="btn btn-primary btn-sm" @click="addItem(taskText)">INSERISCI</button>
+            </div>
+
             <ul class="list-group mb-5">
                 <li v-for="(task,i) in tasks" class="list-group-item d-flex justify-content-between" :class = "{done : task.done}">
-                    <span> {{ task.text }}</span>
+                    <span class="text-item" @click="changeStatus(i)"> {{ task.text }}</span>
                     <button type="button" class="btn-close" @click="removeItem(i)"></button>
                 </li>
             </ul>
-
-            <div class="d-flex px-3">
-                <input class="form-control me-3" type="text" placeholder="Inserire Task" v-model="text" @keyup.enter="addItem(text)">
-                <button type="button" class="btn btn-primary btn-sm" @click="addItem(text)">INSERISCI</button>
-            </div>
         </div>
-
     </main>
 
 

@@ -14,7 +14,7 @@ createApp({
                 },
                 {
                     text: 'Aggiustare orologio',
-                    done: true
+                    done: false
                 },
                 {
                     text: 'Portare il cane a spasso',
@@ -24,19 +24,27 @@ createApp({
                     text: 'Andare a fare la spesa',
                     done: false
                 }
-            ]
+            ],
+            taskText: ''
         }
     },
     methods: {
         removeItem(index) {
             this.tasks.splice(index,1);
         },
-        addItem(text) {
-            const item = {
-                text: text,
-                done: false
+        addItem(taskText) {
+            if(taskText !== '' && taskText.length > 3) {
+                const item = {
+                    text: taskText,
+                    done: false
+                }
+                this.tasks.push(item);
+    
+                this.taskText = ''
             }
-            this.tasks.push(item);
+        },
+        changeStatus(index) {
+            this.tasks[index].done = !this.tasks[index].done;
         }
     }
 }).mount('#app');
